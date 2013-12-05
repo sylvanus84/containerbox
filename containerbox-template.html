@@ -1,0 +1,55 @@
+<div class='container-box' 
+    style='margin-left: 0px; width:168px; min-height: 25px; overflow: auto; border: 1px solid black;'>
+    
+    <table>
+    
+        <% if (options.header) { %>
+        <thead>
+            <tr>
+                <% if (options.remover) { %>
+                <th>
+                    &nbsp;
+                </th>
+                <% } %>
+                
+                <% if (options.selector) { %>
+                <th>
+                    &nbsp;
+                </th>
+                <% } %>
+                
+                <th>
+                    User name
+                </th>
+            </tr>
+        </thead>
+        <% } %>
+        
+        <tbody>
+        <% items.forEach(function(item) { %>
+        
+        <tr class='container-box-item'>
+        
+            <% if (options.remover) { %>
+            <td>
+                <img src='icon-close.png' class='remover' data-id='<%=item[options.idProp] %>'
+                    style="padding: 0px; margin: 0px; width: 10px; height: 10px; cursor: pointer;" />
+            </td>
+            <% } %>
+            
+            <% if (options.selector) { %>
+            <td>
+                <input type='checkbox' class='selector' data-id='<%=item[options.idProp] %>' <%=(item.selected ? 'checked="checked"' : '')%> /> 
+            </td>
+            <% } %>
+            
+            <td>
+                <label><%=item.value %>,</label>
+            </td>
+        </tr>
+        
+        <% }); %>
+        
+        </tbody>
+    </table>
+</div>
